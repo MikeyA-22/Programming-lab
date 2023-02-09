@@ -21,29 +21,35 @@ public class enemycontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        chasePlayer();
+    }
+
+
+    void chasePlayer()
+    {
+
         Distance = Vector3.Distance(Player.transform.position, this.transform.position);
 
 
 
-        if(Distance <= 5)
+        if (Distance <= 5)
         {
             isNear = true;
         }
-        if(Distance >5f)
+        if (Distance > 5f)
         {
             isNear = false;
         }
 
 
-        if(isNear)
+        if (isNear)
         {
             _agent.isStopped = false;
             _agent.SetDestination(Player.transform.position);
         }
-        if(!isNear)
+        if (!isNear)
         {
             _agent.isStopped = true;
         }
-
     }
 }
