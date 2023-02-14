@@ -5,16 +5,20 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public float moveSpeed;
-
+    
     public float jumpForce;
+    
 
 
     private new Rigidbody rigidbody;
-
+    public int health = GlobalInstance.Instance.Health;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        GlobalInstance.Instance.currenthealth(health);
+        
         
     }
 
@@ -58,5 +62,25 @@ public class playerController : MonoBehaviour
     {
         rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
 
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(5);
+        }
+    }
+
+    private void TakeDamage(int damage)
+    {
+
+        health -= damage;
+
+
+        GlobalInstance.Instance.currenthealth(health);
+
+        Debug.Log(health);
     }
 }

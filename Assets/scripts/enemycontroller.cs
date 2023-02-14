@@ -8,8 +8,11 @@ public class enemycontroller : MonoBehaviour
 
     public GameObject Player;
     public float Distance;
-
+    public int health = GlobalInstance.Instance.Health;
     public bool isNear;
+    
+
+
 
     public NavMeshAgent _agent;
     // Start is called before the first frame update
@@ -42,7 +45,7 @@ public class enemycontroller : MonoBehaviour
         }
 
 
-        if (isNear)
+        if (isNear && health > 0)
         {
             _agent.isStopped = false;
             _agent.SetDestination(Player.transform.position);
@@ -51,5 +54,7 @@ public class enemycontroller : MonoBehaviour
         {
             _agent.isStopped = true;
         }
+
+        
     }
 }
