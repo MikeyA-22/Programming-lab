@@ -57,13 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\healthclass.cs" />
+    <Compile Include="Assets\scripts\Coin.cs" />
     <Compile Include="Assets\scripts\GlobalInstance.cs" />
+    <Compile Include="Assets\scripts\ScoreManager.cs" />
+    <Compile Include="Assets\scripts\DifficultySelector.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
     <Compile Include="Assets\scripts\enemycontroller.cs" />
-    <Compile Include="Assets\scripts\DifficultySelector.cs" />
-    <Compile Include="Assets\scripts\Coin.cs" />
     <Compile Include="Assets\scripts\Collectable.cs" />
-    <Compile Include="Assets\scripts\ScoreManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
