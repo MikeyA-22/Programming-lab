@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour, IDataPersistence
 {
     public static ScoreManager scoremanager;
     public TextMeshProUGUI scoreUI;
@@ -26,5 +26,16 @@ public class ScoreManager : MonoBehaviour
         totalscore = totalscore + score;
         Debug.Log(totalscore);
         scoreUI.text = "Score: " + totalscore.ToString();
+    }
+
+    // Game data that we want to store and load
+    public void SaveData(ref GameData data)
+    {
+        data.score = this.totalscore;
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.totalscore = data.score;
     }
 }

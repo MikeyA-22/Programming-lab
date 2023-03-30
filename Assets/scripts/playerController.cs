@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, IDataPersistence
 {
     public float moveSpeed;
     
@@ -83,4 +83,17 @@ public class playerController : MonoBehaviour
 
         Debug.Log(health);
     }
+
+    //game data
+    public void  SaveData(ref GameData data)
+    {
+
+        data.playerPosition = transform.position;
+    }
+
+    public void LoadData(GameData data)
+    {
+        transform.position = data.playerPosition;
+    }
+
 }
