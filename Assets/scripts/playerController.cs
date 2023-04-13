@@ -7,8 +7,8 @@ public class playerController : MonoBehaviour, IDataPersistence
     public float moveSpeed;
     
     public float jumpForce;
-    
 
+    private new Transform transform;
 
     private new Rigidbody rigidbody;
     public int health = GlobalInstance.Instance.Health;
